@@ -1,0 +1,8 @@
+# Quick install
+pip install -r requirements.txt
+
+# Full install with performance optimization
+pip install -r requirements.txt pandas numpy
+
+# If behind a proxy
+pip install --proxy http://your-proxy:port -r requirements.txt

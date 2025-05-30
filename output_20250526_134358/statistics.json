@@ -1,0 +1,10 @@
+{
+  "duration_minutes": 0.049050188064575194,
+  "total_urls": 10,
+  "processed_urls": 0,
+  "failed_urls": 10,
+  "success_rate": 0.0,
+  "avg_time_per_url": 0.0,
+  "rate_limit_hits": 0,
+  "products_created": 0
+}

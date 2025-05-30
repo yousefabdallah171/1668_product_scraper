@@ -1,0 +1,174 @@
+# Installation Guide for 1688 Scraper
+
+## System Requirements
+
+### Minimum Requirements:
+- Python 3.8 or higher
+- 4 GB RAM
+- 4 CPU cores
+- 10 GB free disk space
+
+### Recommended for 100,000+ products:
+- Python 3.10 or higher
+- 16 GB RAM or more
+- 8+ CPU cores
+- 50 GB free disk space
+- SSD storage for better I/O performance
+
+## Installation Steps
+
+### 1. Clone or Download the Project
+```bash
+# Create project directory
+mkdir 1688-scraper
+cd 1688-scraper
+
+# Save the scraper script as scraper.py
+# Save requirements.txt in the same directory
+```
+
+### 2. Create Virtual Environment (Recommended)
+```bash
+# Windows
+python -m venv venv
+venv\Scripts\activate
+
+# Linux/Mac
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. Install Dependencies
+```bash
+# Basic installation
+pip install -r requirements.txt
+
+# For better performance with large datasets
+pip install -r requirements.txt pandas numpy
+
+# If you encounter issues with translators
+pip install --upgrade translators
+```
+
+### 4. Verify Installation
+```bash
+# Check Python version
+python --version
+
+# Test imports
+python -c "import cloudscraper, bs4, translators, psutil; print('All modules imported successfully!')"
+```
+
+## Troubleshooting
+
+### Common Issues:
+
+1. **cloudscraper installation fails**
+```bash
+# Try installing with specific version
+pip install cloudscraper==1.2.71
+```
+
+2. **translators module issues**
+```bash
+# Install with dependencies
+pip install translators[all]
+```
+
+3. **SSL Certificate errors**
+```bash
+# Update certificates
+pip install --upgrade certifi
+```
+
+4. **Memory errors with large files**
+```bash
+# Install optional performance packages
+pip install pandas numpy
+```
+
+5. **Permission errors on Linux/Mac**
+```bash
+# Use sudo for global installation (not recommended)
+# Or ensure virtual environment is activated
+```
+
+## Platform-Specific Notes
+
+### Windows:
+- Use PowerShell or Command Prompt as Administrator for best results
+- Ensure Windows Defender doesn't block the script
+
+### Linux:
+```bash
+# May need to install additional system packages
+sudo apt-get update
+sudo apt-get install python3-dev python3-pip python3-venv
+```
+
+### macOS:
+```bash
+# If using Homebrew
+brew install python3
+# Then follow standard installation
+```
+
+## Performance Optimization
+
+For processing 100,000+ URLs, also install:
+```bash
+# Memory-efficient data processing
+pip install pandas numpy
+
+# Faster JSON processing
+pip install ujson
+
+# Alternative HTML parser (faster)
+pip install html5lib
+```
+
+## Docker Alternative
+
+Create a `Dockerfile`:
+```dockerfile
+FROM python:3.10-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY scraper.py .
+COPY urls.txt .
+
+CMD ["python", "scraper.py"]
+```
+
+Build and run:
+```bash
+docker build -t 1688-scraper .
+docker run -v $(pwd)/output:/app/output 1688-scraper
+```
+
+## Quick Start
+
+1. Create `urls.txt` with your 1688 URLs (one per line)
+2. Run the scraper:
+```bash
+python scraper.py
+```
+
+3. Check output in the generated `output_YYYYMMDD_HHMMSS/` directory
+
+## Monitoring Performance
+
+For large-scale operations, monitor system resources:
+```bash
+# Linux/Mac
+htop
+
+# Windows
+taskmgr
+```
+
+The script will automatically adjust based on available resources.

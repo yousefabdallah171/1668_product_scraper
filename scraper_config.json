@@ -1,0 +1,46 @@
+{
+    "scraper_settings": {
+        "use_cloudscraper": true,
+        "max_retries": 3,
+        "request_timeout": 30,
+        "min_delay": 2.0,
+        "max_delay": 7.0,
+        "batch_size": 50,
+        "batch_delay": 30,
+        "max_requests_per_hour": 1000,
+        "user_agents": [
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0"
+        ],
+        "accept_languages": [
+            "en-US,en;q=0.9",
+            "en-GB,en;q=0.9,en-US;q=0.8",
+            "zh-CN,zh;q=0.9,en;q=0.8"
+        ]
+    },
+    "proxy_settings": {
+        "enabled": false,
+        "proxy_list": [],
+        "proxy_auth_required": false,
+        "proxy_username": "",
+        "proxy_password": "",
+        "proxy_max_failures": 3,
+        "proxy_health_check_url": "https://www.google.com",
+        "proxy_health_check_timeout": 10
+    },
+    "output_settings": {
+        "output_dir": "output",
+        "log_file": "scraper.log",
+        "error_log_file": "scraper_errors.log",
+        "export_format": "csv",
+        "max_file_size_mb": 100,
+        "max_files_to_keep": 10
+    },
+    "debug_settings": {
+        "log_level": "INFO",
+        "save_html_on_error": true,
+        "save_html_dir": "debug_html",
+        "print_debug_info": false
+    }
+}
